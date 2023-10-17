@@ -7,6 +7,7 @@ import MyCart from "../../Pages/MyCart/MyCart";
 import Login from "../../Pages/Login/Login";
 import Root from "../Root/Root";
 import Errorpage from "../ErrorPage/Errorpage";
+import Register from "../../Pages/Register/Register";
 
   const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ import Errorpage from "../ErrorPage/Errorpage";
               {
                   path:'/login',
                   element:<Login></Login>
+              },
+              {
+                path:'/register',
+                element:<Register></Register>
               }
         ]
         

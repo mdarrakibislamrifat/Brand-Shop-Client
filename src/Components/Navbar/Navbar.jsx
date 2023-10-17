@@ -79,7 +79,7 @@ const Navbar = () => {
                 </ul>
               </div>
               <img
-                className="rounded-full w-[50px]"
+                className="rounded-full w-[60px]"
                 src="https://i.ibb.co/C8pPJss/7949550.jpg"
                 alt=""
               />
