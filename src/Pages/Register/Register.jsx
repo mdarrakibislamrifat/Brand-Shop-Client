@@ -1,23 +1,53 @@
+import { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../Components/Provider/AuthProvider";
 
 const Register = () => {
-    return (
-        <div className="hero my-10">
+  const {createUser}=useContext(AuthContext)
+  const [error, setError] = useState("");
+  const [registerError, SetRegisterError] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    setError("");
+    SetRegisterError("");
+    if (
+      !/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.{6,}).*$/.test(password)
+    ) {
+      toast.error(
+        "Please provide more than 6 characters,one capital letter and a special character"
+      );
+    } else {
+      createUser(email, password)
+        .then((result) => {
+          toast.success("Successfully Register!");
+        })
+        .catch((error) => {
+          setError(error.message);
+        });
+    }
+  };
+
+  return (
+    <div className="hero my-10">
       <div className="hero-content ">
-        
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-        <div className="text-center ">
-        <h1 className="text-5xl font-bold">Register now!</h1>
-        </div>
-          <form className="card-body">
+          <div className="text-center ">
+            <h1 className="text-5xl font-bold">Register now!</h1>
+          </div>
+          <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
-                placeholder="Email" name="email"
+                placeholder="Email"
+                name="email"
                 className="input input-bordered"
                 required
               />
@@ -28,21 +58,22 @@ const Register = () => {
               </label>
               <input
                 type="password"
-                placeholder="Password" name="password"
+                placeholder="Password"
+                name="password"
                 className="input input-bordered"
                 required
               />
-              
+              <p className="text-red-400">{error}</p>
             </div>
             <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-            Already you have an account? Please 
-             <Link
-              className="font-semibold text-amber-500 transition-colors hover:text-blue-700"
-              to="/login"
-            >
-              Login
-            </Link>
-          </p>
+              Already you have an account? Please
+              <Link
+                className="font-semibold text-amber-500 transition-colors hover:text-blue-700"
+                to="/login"
+              >
+                Login
+              </Link>
+            </p>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>
@@ -50,7 +81,7 @@ const Register = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Register;
