@@ -87,6 +87,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+
       {/* new arival phone */}
         <h2 className="text-center text-3xl font-bold underline">New Arrival Phones</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -152,6 +153,62 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* users review */}
+
+      <div class="pb-5">
+    <div class="container flex flex-col items-center justify-center w-full p-6 mx-auto mt-4 text-center xl:px-0">
+        <div class="text-3xl font-bold tracking-wider uppercase">Customer review</div>
+        <h2 class="max-w-2xl  text-3xl font-bold leading-snug tracking-tight  lg:leading-tight lg:text-4xl dark:text-white">Here&#x27;s what our customers said</h2>
+        <p class="max-w-2xl  text-lg leading-normal  lg:text-xl xl:text-xl ">A customer review is an evaluation of a product or service made by someone who has purchased and used, or had experience with, a product or service. Customer reviews are a form of customer feedback on electronic commerce and online shopping sites.</p>
+    </div>
+    <div class="container p-6 mx-auto mb-10 xl:px-0">
+        <div class="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
+            <div class="lg:col-span-2 xl:col-auto">
+                <div class="flex flex-col justify-between w-full h-full px-6 py-6 bg-gray-100 md:px-14 rounded-2xl md:py-14 dark:bg-trueGray-800">
+                    <p>I recently visited this mobile shop and was pleasantly surprised by the wide variety of mobile phones they had on display. The staff was friendly and knowledgeable, assisting me in finding the perfect phone to suit my needs and budget. The prices were competitive, and they even had some great ongoing promotions. The only reason I'm not giving it a 5-star rating is because the store was a bit crowded and could use a bit more organization. Overall, a good experience!</p>
+                    <div class="flex items-center mt-8 space-x-3">
+                        <div class="flex-shrink-0 overflow-hidden rounded-full w-14 h-14">
+                            <img alt="Avatar" src="https://i.ibb.co/8bVcJCy/361587381-3758661557789739-8841199669191703801-n-1.jpg" loading="lazy" />
+                        </div>
+                        <div>
+                            <div class="text-lg font-medium">Rifat</div>
+                            <div class="text-gray-600 dark:text-gray-400">VP Sales at Google</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex flex-col justify-between w-full h-full bg-gray-100 px-6 py-6 bg-gray-100md:px-14 rounded-2xl md:py-14 dark:bg-trueGray-800">
+                    <p>I had a disappointing experience at this mobile shop. The staff seemed disinterested in assisting customers, and I had to wait for a considerable amount of time before someone attended to me. When I finally got assistance, the salesperson was not very knowledgeable about the products and couldn't answer my questions. The prices were high compared to other stores I've visited. The only positive aspect was the store's location, which was convenient. Overall, I wouldn't recommend this shop.</p>
+                    <div class="flex items-center mt-8 space-x-3">
+                        <div class="flex-shrink-0 overflow-hidden rounded-full w-14 h-14">
+                            <img alt="Avatar" src="https://i.ibb.co/cv90trg/332704208-704932394672905-5529177286644284178-n-1.jpg" loading="lazy" />
+                        </div>
+                        <div>
+                            <div class="text-lg font-medium">Rakib</div>
+                            <div class="text-gray-600 dark:text-gray-400">Lead marketer at Website </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex flex-col justify-between w-full bg-gray-100 h-full px-6 py-6 bg-gray-100md:px-14 rounded-2xl md:py-14 dark:bg-trueGray-800">
+                   <p>I am extremely satisfied with my experience at this mobile shop. The staff was exceptionally helpful and patient in guiding me through the various phone options and plans available. They took the time to understand my requirements and offered the perfect recommendations. The store was well-organized and clean, making it easy to browse and compare products. Additionally, they had some fantastic deals that made my purchase even more worthwhile. I highly recommend this mobile shop for anyone looking to buy a new phone!</p>
+                    <div class="flex items-center mt-8 space-x-3">
+                        <div class="flex-shrink-0 overflow-hidden rounded-full w-14 h-14">
+                            <img alt="Avatar" src="https://i.ibb.co/Ct9z2nd/272659629-3334559676866598-6122847521370266447-n.jpg" loading="lazy" />
+                        </div>
+                        <div>
+                            <div class="text-lg font-medium">Rohan</div>
+                            <div class="text-gray-600 dark:text-gray-400">Co-founder of Mobile company</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
       {/* footer */}
       <div>
