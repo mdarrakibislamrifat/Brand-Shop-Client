@@ -158,7 +158,7 @@ const Home = () => {
 
       <div class="pb-5">
     <div class="container flex flex-col items-center justify-center w-full p-6 mx-auto mt-4 text-center xl:px-0">
-        <div class="text-3xl font-bold tracking-wider uppercase">Customer review</div>
+        <div class="text-3xl font-bold tracking-wider uppercase underline">Customer review</div>
         <h2 class="max-w-2xl  text-3xl font-bold leading-snug tracking-tight  lg:leading-tight lg:text-4xl dark:text-white">Here&#x27;s what our customers said</h2>
         <p class="max-w-2xl  text-lg leading-normal  lg:text-xl xl:text-xl ">A customer review is an evaluation of a product or service made by someone who has purchased and used, or had experience with, a product or service. Customer reviews are a form of customer feedback on electronic commerce and online shopping sites.</p>
     </div>

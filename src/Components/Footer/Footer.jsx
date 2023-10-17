@@ -42,7 +42,7 @@ const Footer = () => {
   </div>
   <hr className="my-8 " />
   <p className="block text-center font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
-    © Developed By Md Ar Rakib Islam rifat
+    © Developed By Md Ar Rakib Islam Rifat
   </p>
 </footer>
     );
