@@ -3,7 +3,7 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Components/Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, updateProfile } from "firebase/auth";
 
 const provider = new GoogleAuthProvider();
 const Register = () => {
@@ -20,7 +20,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    console.log(name,photo,email,password)
+    
     setError("");
     SetRegisterError("");
     if (
@@ -32,6 +32,10 @@ const Register = () => {
     } else {
       createUser(email, password,photo,name)
         .then((result) => {
+          updateProfile((result.user),{
+            displayName:`${name}` ,
+            photoURL: `${photo}`,
+          })
           toast.success("Successfully Register!");
         })
         .catch((error) => {
@@ -43,7 +47,7 @@ const Register = () => {
   const handleGoogle=()=>{
     googleSignIn(provider)
     .then(result=>{
-      console.log(result.user)
+      
       navigate(location?.state  ? location.state : '/')
       .catch(error=>{
         console.log(error.message)

@@ -7,6 +7,8 @@ import toast from "react-hot-toast";
 const Navbar = () => {
 
   const {user,logOut}=useContext(AuthContext);
+  
+  
 
   const handleLogout=()=>{
     logOut()
@@ -17,6 +19,7 @@ const Navbar = () => {
       console.log(error.message)
     })
   }
+  
     const links = (
         <>
           <li>
@@ -105,10 +108,10 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
         <div className=" mr-2">
-          {user ? <div className="flex h-[40px] items-center">
-          <p className="mr-2">{user.displayName}</p>
-          <img className="rounded-full w-[50px] mr-2" src={user.photoURL} alt="" />
-          </div> : <div className="flex h-[40px] items-center"> <img className="rounded-full w-[50px] mr-2" src="https://i.ibb.co/SPLfvmb/324259259-565764695569197-5052157878188652179-n.jpg" alt="" /></div>
+          {user && <div className="flex h-[40px] items-center">
+          <p className="mr-2">{user?.displayName}</p>
+          <img className="rounded-full w-[50px] mr-2" src={user?.photoURL} alt="" />
+          </div> 
            
           
           }

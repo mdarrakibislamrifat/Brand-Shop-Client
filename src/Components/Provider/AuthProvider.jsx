@@ -34,6 +34,7 @@ useEffect(()=>{
     setUser(currentUser)
     
     setLoading(false)
+    console.log(currentUser.photoURL)
     
   })
   return ()=>{
