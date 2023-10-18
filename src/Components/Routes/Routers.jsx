@@ -8,6 +8,7 @@ import Login from "../../Pages/Login/Login";
 import Root from "../Root/Root";
 import Errorpage from "../ErrorPage/Errorpage";
 import Register from "../../Pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
   const router = createBrowserRouter([
     {
@@ -18,14 +19,15 @@ import Register from "../../Pages/Register/Register";
             {
                 path: "/",
                 element: <Home></Home>,
+                loader:()=>fetch('/data.json')
               },
               {
                   path:'/addproduct',
-                  element:<AddProduct></AddProduct>
+                  element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
               },
               {
                   path:'/mycart',
-                  element:<MyCart></MyCart>
+                  element:<PrivateRoute><MyCart></MyCart></PrivateRoute>
               },
               {
                   path:'/login',

@@ -1,7 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const Navbar = () => {
+
+  const {user,logOut}=useContext(AuthContext);
+
+  const handleLogout=()=>{
+    logOut()
+    .then(result=>{
+      toast.success(' Log out successfully')
+    })
+    .catch(error=>{
+      console.log(error.message)
+    })
+  }
     const links = (
         <>
           <li>
@@ -83,14 +98,29 @@ const Navbar = () => {
                 src="https://i.ibb.co/C8pPJss/7949550.jpg"
                 alt=""
               />
-              <a className="btn btn-ghost normal-case text-xl">PhoneBD</a>
+              <Link className="btn btn-ghost normal-case text-xl">PhoneBD</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
             <div className="navbar-end">
-              <a className="btn">Button</a>
-            </div>
+        <div className=" mr-2">
+          {user ? <div className="flex h-[40px] items-center">
+          <p className="mr-2">{user.displayName}</p>
+          <img className="rounded-full w-[50px] mr-2" src={user.photoURL} alt="" />
+          </div> : <div className="flex h-[40px] items-center"> <img className="rounded-full w-[50px] mr-2" src="https://i.ibb.co/SPLfvmb/324259259-565764695569197-5052157878188652179-n.jpg" alt="" /></div>
+           
+          
+          }
+        </div>
+        {user ? (
+          <button onClick={handleLogout} className="font-bold text-amber-500">Logout</button>
+        ) : (
+          <Link to="/login">
+            <button >Login</button>
+          </Link>
+        )}
+      </div>
           </div>
           {/* navbar end */}
         </div>

@@ -1,6 +1,30 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate} from "react-router-dom";
+import { AuthContext } from "../../Components/Provider/AuthProvider";
 
 const Login = () => {
+  const {signInUser}=useContext(AuthContext);
+  const [error,setError]=useState('')
+
+  const location=useLocation();
+  const navigate=useNavigate();
+
+const handleLogin=e=>{
+  e.preventDefault();
+  const form = e.target;
+  const email = form.email.value;
+  const password = form.password.value;
+  signInUser(email,password)
+  .then(result=>{
+    console.log(result.user)
+    e.target.reset();
+    navigate(location?.state  ? location.state : '/')
+    
+  })
+  .catch(error=>{
+    setError(error.message)
+  })
+}
   return (
     <div className="hero my-10">
       <div className="hero-content ">
@@ -9,7 +33,7 @@ const Login = () => {
         <div className="text-center ">
         <h1 className="text-5xl font-bold">Login now!</h1>
         </div>
-          <form className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -33,6 +57,7 @@ const Login = () => {
               />
               
             </div>
+            <p className="text-red-400">{error}</p>
             <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
             Are you new here? Please 
              <Link
