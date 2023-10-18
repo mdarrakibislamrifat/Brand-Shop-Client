@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Components/Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -10,7 +10,8 @@ const Register = () => {
   const { createUser,googleSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [registerError, SetRegisterError] = useState("");
-
+  const loaction=useLocation();
+  const navigate=useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -43,6 +44,7 @@ const Register = () => {
     googleSignIn(provider)
     .then(result=>{
       console.log(result.user)
+      navigate(location?.state  ? location.state : '/')
       .catch(error=>{
         console.log(error.message)
       })

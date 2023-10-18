@@ -1,12 +1,40 @@
 const AddProduct = () => {
+
+  const handleAddProduct=e=>{
+    e.preventDefault();
+    const form=e.target;
+    const image=form.image.value;
+    const name=form.name.value;
+    const brandName=form.brandName.value;
+    const type=form.type.value;
+    const price=form.price.value;
+    const shortDescription=form.shortDescription.value;
+    const rating=form.rating.value;
+
+    const product={image,name,brandName,type,price,shortDescription,rating}
+    
+    fetch('http://localhost:5000/products',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(product)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+    })
+
+
+  }
   return (
     <div>
-      <form>
+      <form onSubmit={handleAddProduct}>
         {/*image */}
         <div className="mb-8">
           <div className="form-control md:w-full">
             <label className="label">
-              <span className="label-text">Photo URL</span>
+              <span className="label-text">Image URL</span>
             </label>
             <label className="input-group">
               <input
@@ -96,19 +124,12 @@ const AddProduct = () => {
               <span className="label-text">Rating</span>
             </label>
             <label className="input-group">
-            <div className="rating rating-lg rating-half">
-  <input type="radio" name="rating-10" className="rating-hidden" />
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" />
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" />
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" checked />
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" />
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" />
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" />
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" />
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" />
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-1" />
-  <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 mask-half-2" />
-</div>
+            <input
+                type="text"
+                name="rating"
+                placeholder="Rating"
+                className="input input-bordered w-full"
+              />
             </label>
           </div>
         </div>
