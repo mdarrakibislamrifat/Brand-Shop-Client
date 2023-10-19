@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Components/Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
@@ -7,35 +7,35 @@ import { GoogleAuthProvider, updateProfile } from "firebase/auth";
 
 const provider = new GoogleAuthProvider();
 const Register = () => {
-  const { createUser,googleSignIn } = useContext(AuthContext);
+  const { createUser, googleSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [registerError, SetRegisterError] = useState("");
-  const loaction=useLocation();
-  const navigate=useNavigate();
+  const loaction = useLocation();
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name=form.name.value;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    
+
     setError("");
     SetRegisterError("");
     if (
       !/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.{6,}).*$/.test(password)
     ) {
       setError(
-        "Please provide more than 6 characters,one capital letter and a special character"
+        "Please provide more than 6 characters,one capital letter and a special character",
       );
     } else {
-      createUser(email, password,photo,name)
+      createUser(email, password, photo, name)
         .then((result) => {
-          updateProfile((result.user),{
-            displayName:`${name}` ,
+          updateProfile(result.user, {
+            displayName: `${name}`,
             photoURL: `${photo}`,
-          })
+          });
           toast.success("Successfully Register!");
         })
         .catch((error) => {
@@ -44,16 +44,13 @@ const Register = () => {
     }
   };
 
-  const handleGoogle=()=>{
-    googleSignIn(provider)
-    .then(result=>{
-      
-      navigate(location?.state  ? location.state : '/')
-      .catch(error=>{
-        console.log(error.message)
-      })
-    })
-  }
+  const handleGoogle = () => {
+    googleSignIn(provider).then((result) => {
+      navigate(location?.state ? location.state : "/").catch((error) => {
+        console.log(error.message);
+      });
+    });
+  };
 
   return (
     <div className="hero my-10">
@@ -64,7 +61,7 @@ const Register = () => {
             <h1 className="text-5xl font-bold">Register now!</h1>
           </div>
           <form onSubmit={handleRegister} className="card-body">
-          <div className="form-control">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
               </label>
@@ -76,7 +73,7 @@ const Register = () => {
                 required
               />
             </div>
-          <div className="form-control">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Photo URL</span>
               </label>
@@ -127,7 +124,9 @@ const Register = () => {
             </div>
           </form>
           <div className="flex items-center justify-center  bg-green-400 p-2 rounded-lg mb-6">
-          <button onClick={handleGoogle}  className="flex items-center"><FaGoogle className="mr-2 "></FaGoogle> Sign In With Google</button>
+            <button onClick={handleGoogle} className="flex items-center">
+              <FaGoogle className="mr-2 "></FaGoogle> Sign In With Google
+            </button>
           </div>
         </div>
       </div>

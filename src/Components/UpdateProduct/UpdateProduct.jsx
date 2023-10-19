@@ -2,15 +2,10 @@ import toast, { Toaster } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const UpdateProduct = () => {
-    const card=useLoaderData();
-    console.log(card)
-    const {_id,image,
-        name,
-        brandName,
-        type,
-        price,
-        shortDescription,
-        rating,}=card;
+  const card = useLoaderData();
+  console.log(card);
+  const { _id, image, name, brandName, type, price, shortDescription, rating } =
+    card;
 
   const handleUpdateProduct = (e) => {
     e.preventDefault();
@@ -30,24 +25,24 @@ const UpdateProduct = () => {
       price,
       shortDescription,
       rating,
-    }
-    fetch(`http://localhost:5000/products/${_id}`,{
-        method:'PUT',
-        headers:{
-            'content-type':'application/json'
-        },
-        body:JSON.stringify(updateItem)
+    };
+    fetch(`http://localhost:5000/products/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateItem),
     })
-    .then(res=>res.json())
-    .then(data=>{
-        if(data.modifiedCount>0){
-            toast.success("Successfully Updated Product!");
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Successfully Updated Product!");
         }
-    })
+      });
   };
   return (
     <div>
-        <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
       <form onSubmit={handleUpdateProduct}>
         {/*image */}
         <div className="mb-8">
@@ -59,7 +54,8 @@ const UpdateProduct = () => {
               <input
                 type="text"
                 name="image"
-                placeholder="Image URL" defaultValue={image}
+                placeholder="Image URL"
+                defaultValue={image}
                 className="input input-bordered w-full"
               />
             </label>
@@ -75,7 +71,8 @@ const UpdateProduct = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="Name" defaultValue={name}
+                placeholder="Name"
+                defaultValue={name}
                 className="input input-bordered w-full"
               />
             </label>
@@ -88,7 +85,8 @@ const UpdateProduct = () => {
               <input
                 type="text"
                 name="brandName"
-                placeholder="Brand Name" defaultValue={brandName}
+                placeholder="Brand Name"
+                defaultValue={brandName}
                 className="input input-bordered w-full"
               />
             </label>
@@ -104,7 +102,8 @@ const UpdateProduct = () => {
               <input
                 type="type"
                 name="type"
-                placeholder="Type" defaultValue={type}
+                placeholder="Type"
+                defaultValue={type}
                 className="input input-bordered w-full"
               />
             </label>
@@ -117,7 +116,8 @@ const UpdateProduct = () => {
               <input
                 type="text"
                 name="price"
-                placeholder="Price" defaultValue={price}
+                placeholder="Price"
+                defaultValue={price}
                 className="input input-bordered w-full"
               />
             </label>
@@ -133,7 +133,8 @@ const UpdateProduct = () => {
               <input
                 type="text"
                 name="shortDescription"
-                placeholder="Short Description" defaultValue={shortDescription}
+                placeholder="Short Description"
+                defaultValue={shortDescription}
                 className="input input-bordered w-full"
               />
             </label>
@@ -146,7 +147,8 @@ const UpdateProduct = () => {
               <input
                 type="text"
                 name="rating"
-                placeholder="Rating" defaultValue={rating}
+                placeholder="Rating"
+                defaultValue={rating}
                 className="input input-bordered w-full"
               />
             </label>

@@ -18,6 +18,8 @@ const Details = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("Successfully Added Cart!");
+        } else {
+          toast.error("Already added this product");
         }
         console.log(data);
       })

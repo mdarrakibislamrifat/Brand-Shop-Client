@@ -1,33 +1,32 @@
 [
-    {
-      "id": 1,
-      "brandName": "Apple",
-      "image": "https://i.ibb.co/RNk8JjG/1511456315-653-apple-desktop.jpg"
-    },
-    {
-      "id": 2,
-      "brandName": "Samsung",
-      "image": "https://i.ibb.co/8Nc4y5y/Samsung-Logo-svg.png"
-    },
-    {
-      "id": 3,
-      "brandName": "Google",
-      "image": "https://i.ibb.co/ygNNL5x/Google-logo-500x281.png"
-    },
-    {
-      "id": 4,
-      "brandName": "Xiaomi",
-      "image": "https://i.ibb.co/wrJ4Mdh/Xiaomi-logo-500x281.png"
-    },
-    {
-      "id": 5,
-      "brandName": "Realme",
-      "image": "https://i.ibb.co/W2sGLnc/realme5985-logowik-com.webp"
-    },
-    {
-      "id": 6,
-      "brandName": "Sony",
-      "image": "https://i.ibb.co/S3rz3x8/Sony-logo-500x281.png"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "brandName": "Apple",
+    "image": "https://i.ibb.co/RNk8JjG/1511456315-653-apple-desktop.jpg"
+  },
+  {
+    "id": 2,
+    "brandName": "Samsung",
+    "image": "https://i.ibb.co/8Nc4y5y/Samsung-Logo-svg.png"
+  },
+  {
+    "id": 3,
+    "brandName": "Google",
+    "image": "https://i.ibb.co/ygNNL5x/Google-logo-500x281.png"
+  },
+  {
+    "id": 4,
+    "brandName": "Xiaomi",
+    "image": "https://i.ibb.co/wrJ4Mdh/Xiaomi-logo-500x281.png"
+  },
+  {
+    "id": 5,
+    "brandName": "Realme",
+    "image": "https://i.ibb.co/W2sGLnc/realme5985-logowik-com.webp"
+  },
+  {
+    "id": 6,
+    "brandName": "Sony",
+    "image": "https://i.ibb.co/S3rz3x8/Sony-logo-500x281.png"
+  }
+]

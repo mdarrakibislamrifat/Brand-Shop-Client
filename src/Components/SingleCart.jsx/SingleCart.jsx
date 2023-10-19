@@ -1,12 +1,10 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+
 import Swal from "sweetalert2";
 
-const SingleCart = ({ cart }) => {
+const SingleCart = ({ cart, carts,handleCart }) => {
   const { _id, image, name, brandName, type, price, shortDescription, rating } =
     cart || {};
-
-    const [carts,setCarts]=useState(cart);
-    
 
 
   const handleDelete = (_id) => {
@@ -20,16 +18,20 @@ const SingleCart = ({ cart }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/carts/${_id}`,{
-          method:'DELETE'
+        fetch(`http://localhost:5000/carts/${_id}`, {
+          method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your Product has been deleted.", "success");
-              const remaining=carts.filter(carts._id !==_id)
-              setCarts(remaining)
+              Swal.fire(
+                "Deleted!",
+                "Your Product has been deleted.",
+                "success",
+              );
+              const filterCart=carts.filter(data=>data._id !==_id)
+              handleCart(filterCart)
             }
           });
       }
@@ -38,7 +40,7 @@ const SingleCart = ({ cart }) => {
 
   return (
     <div>
-      <div className="card lg:card-side bg-base-100 shadow-xl p-4 h-[500px] border-4 border-violet-500">
+      <div className="card h-full lg:card-side bg-base-100 shadow-xl  p-4 h-[500px] border-4 border-violet-500">
         <figure>
           <img className="w-full" src={image} alt="Album" />
         </figure>
