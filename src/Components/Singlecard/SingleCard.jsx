@@ -12,13 +12,6 @@ const SingleCard = ({ card }) => {
 
       
 
-
-
-
-
-
-
-
         {/* cards */}
         <div className="card lg:card-side bg-base-100 shadow-xl p-4 h-[500px] border-4 border-violet-500">
         <figure>
