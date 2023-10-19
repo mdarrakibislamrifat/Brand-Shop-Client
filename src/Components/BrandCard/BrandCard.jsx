@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import {  useLoaderData } from "react-router-dom";
 import SingleCard from "../Singlecard/SingleCard";
 import NoDataFoundPage from "../NoDataFoundPage/NoDataFoundPage";
 

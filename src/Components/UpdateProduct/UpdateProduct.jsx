@@ -1,7 +1,18 @@
 import toast, { Toaster } from "react-hot-toast";
+import { useLoaderData } from "react-router-dom";
 
-const AddProduct = () => {
-  const handleAddProduct = (e) => {
+const UpdateProduct = () => {
+    const card=useLoaderData();
+    console.log(card)
+    const {_id,image,
+        name,
+        brandName,
+        type,
+        price,
+        shortDescription,
+        rating,}=card;
+
+  const handleUpdateProduct = (e) => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
@@ -11,8 +22,7 @@ const AddProduct = () => {
     const price = form.price.value;
     const shortDescription = form.shortDescription.value;
     const rating = form.rating.value;
-
-    const product = {
+    const updateItem = {
       image,
       name,
       brandName,
@@ -20,27 +30,25 @@ const AddProduct = () => {
       price,
       shortDescription,
       rating,
-    };
-
-    fetch("http://localhost:5000/products", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(product),
+    }
+    fetch(`http://localhost:5000/products/${_id}`,{
+        method:'PUT',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(updateItem)
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          toast.success("Successfully Add Cart!");
+    .then(res=>res.json())
+    .then(data=>{
+        if(data.modifiedCount>0){
+            toast.success("Successfully Updated Product!");
         }
-      });
+    })
   };
   return (
     <div>
-      <Toaster position="top-center" reverseOrder={false} />
-      <form onSubmit={handleAddProduct}>
+        <Toaster position="top-center" reverseOrder={false} />
+      <form onSubmit={handleUpdateProduct}>
         {/*image */}
         <div className="mb-8">
           <div className="form-control md:w-full">
@@ -51,7 +59,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="image"
-                placeholder="Image URL"
+                placeholder="Image URL" defaultValue={image}
                 className="input input-bordered w-full"
               />
             </label>
@@ -67,7 +75,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder="Name" defaultValue={name}
                 className="input input-bordered w-full"
               />
             </label>
@@ -80,7 +88,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="brandName"
-                placeholder="Brand Name"
+                placeholder="Brand Name" defaultValue={brandName}
                 className="input input-bordered w-full"
               />
             </label>
@@ -96,7 +104,7 @@ const AddProduct = () => {
               <input
                 type="type"
                 name="type"
-                placeholder="Type"
+                placeholder="Type" defaultValue={type}
                 className="input input-bordered w-full"
               />
             </label>
@@ -109,7 +117,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="price"
-                placeholder="Price"
+                placeholder="Price" defaultValue={price}
                 className="input input-bordered w-full"
               />
             </label>
@@ -125,7 +133,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="shortDescription"
-                placeholder="Short Description"
+                placeholder="Short Description" defaultValue={shortDescription}
                 className="input input-bordered w-full"
               />
             </label>
@@ -138,7 +146,7 @@ const AddProduct = () => {
               <input
                 type="text"
                 name="rating"
-                placeholder="Rating"
+                placeholder="Rating" defaultValue={rating}
                 className="input input-bordered w-full"
               />
             </label>
@@ -148,11 +156,11 @@ const AddProduct = () => {
         <input
           className="btn bg-violet-700 btn-block text-white"
           type="submit"
-          value="Add Phone"
+          value="Update Phone"
         />
       </form>
     </div>
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;
