@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
 
 const SingleCard = ({ card }) => {
-  const { image, name, brandName, type, price, shortDescription, rating } =
+    
+  const {_id, image, name, brandName, type, price, shortDescription, rating } =
     card || {};
   return (
     <div>
-      <div className="card lg:card-side bg-base-100 shadow-xl p-4 h-[500px] border-4 border-green-500">
+      <div className="card lg:card-side bg-base-100 shadow-xl p-4 h-[500px] border-4 border-violet-500">
         <figure>
           <img className="w-full"
             src={image}
@@ -19,8 +21,8 @@ const SingleCard = ({ card }) => {
           <p>{shortDescription}</p>
           <p>Ratings: {rating} </p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Add to Cart</button>
-            <button className="btn btn-primary">View details</button>
+            <button className="btn btn-primary">Update</button>
+            <Link to={`/details/${_id}`}><button className="btn btn-primary">View details</button></Link>
           </div>
         </div>
       </div>

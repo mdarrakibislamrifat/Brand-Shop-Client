@@ -10,6 +10,7 @@ import Errorpage from "../ErrorPage/Errorpage";
 import Register from "../../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import BrandCard from "../BrandCard/BrandCard";
+import Details from "../Details/Details";
 
   const router = createBrowserRouter([
     {
@@ -41,7 +42,12 @@ import BrandCard from "../BrandCard/BrandCard";
               {
                 path:'/brandcard/:brandName',
                 element:<BrandCard></BrandCard>,
-                loader:({params})=>fetch(`http://localhost:5000/products/${params.brandName}`)
+                loader:({params})=>fetch(`http://localhost:5000/products/brand/${params.brandName}`)
+              },
+              {
+                path:'/details/:_id',
+                element:<PrivateRoute><Details></Details></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/products/id/${params._id}`)
               }
         ]
         
