@@ -37,8 +37,9 @@ const router = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/carts"),
+        loader: () => fetch("https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/carts"),
       },
+      
       {
         path: "/login",
         element: <Login></Login>,
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
         path: "/brandcard/:brandName",
         element: <BrandCard></BrandCard>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/brand/${params.brandName}`),
+          fetch(`https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/products/brand/${params.brandName}`),
       },
       {
         path: "/details/:_id",
@@ -61,13 +62,13 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/id/${params._id}`),
+          fetch(`https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/products/id/${params._id}`),
       },
       {
         path: "/update/:id",
         element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(`https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/products/${params.id}`),
       },
     ],
   },

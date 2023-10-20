@@ -22,7 +22,7 @@ const AddProduct = () => {
       rating,
     };
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

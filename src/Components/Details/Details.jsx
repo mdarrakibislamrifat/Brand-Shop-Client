@@ -7,7 +7,7 @@ const Details = () => {
     detail || {};
 
   const handleAddToCart = (item) => {
-    fetch("http://localhost:5000/carts", {
+    fetch("https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/carts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
