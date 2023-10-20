@@ -1,18 +1,22 @@
+import { useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { serverAddress } from "../../Data/serverAddress";
 
 const Details = () => {
   const detail = useLoaderData();
-  const { _id, image, name, brandName, type, price, shortDescription, rating } =
+  const {_id,  image, name, brandName, type, price, shortDescription, rating } =
     detail || {};
-
-  const handleAddToCart = (item) => {
-    fetch("https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/carts", {
+  const {user}=useContext(AuthContext);
+  
+  const handleAddToCart = () => {
+    fetch(`${serverAddress}/carts`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(item),
+      body: JSON.stringify({id:_id, image, name, brandName, type, price, shortDescription, rating,email:user.email}),
     })
       .then((result) => result.json())
       .then((data) => {
@@ -41,7 +45,7 @@ const Details = () => {
         <p>rating : {rating}</p>
         <div className="card-actions">
           <button
-            onClick={() => handleAddToCart(detail)}
+            onClick={ handleAddToCart}
             className="btn btn-primary"
           >
             Add to Cart

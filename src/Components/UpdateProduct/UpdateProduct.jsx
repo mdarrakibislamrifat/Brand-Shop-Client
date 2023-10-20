@@ -1,5 +1,6 @@
 import toast, { Toaster } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
+import { serverAddress } from "../../Data/serverAddress";
 
 const UpdateProduct = () => {
   const card = useLoaderData();
@@ -26,7 +27,7 @@ const UpdateProduct = () => {
       shortDescription,
       rating,
     };
-    fetch(`https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/products/${_id}`, {
+    fetch(`${serverAddress}/products/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

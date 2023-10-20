@@ -1,4 +1,5 @@
 import toast, { Toaster } from "react-hot-toast";
+import { serverAddress } from "../../Data/serverAddress";
 
 const AddProduct = () => {
   const handleAddProduct = (e) => {
@@ -22,7 +23,7 @@ const AddProduct = () => {
       rating,
     };
 
-    fetch("https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/products", {
+    fetch(`${serverAddress}/products`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

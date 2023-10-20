@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
 
 import Swal from "sweetalert2";
+import { serverAddress } from "../../Data/serverAddress";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const SingleCart = ({ cart, carts,handleCart }) => {
-  const { _id, image, name, brandName, type, price, shortDescription, rating } =
+  const { id, image, name, brandName, type, price, shortDescription, rating } =
     cart || {};
+const {user}=useContext(AuthContext)
 
-
-  const handleDelete = (_id) => {
+  const handleDelete = () => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -18,7 +21,7 @@ const SingleCart = ({ cart, carts,handleCart }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/carts/${_id}`, {
+        fetch(`${serverAddress}/carts/${id}/${user.email}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -30,7 +33,7 @@ const SingleCart = ({ cart, carts,handleCart }) => {
                 "Your Product has been deleted.",
                 "success",
               );
-              const filterCart=carts.filter(data=>data._id !==_id)
+              const filterCart=carts.filter(data=>data.id !==id)
               handleCart(filterCart)
             }
           });
@@ -53,7 +56,7 @@ const SingleCart = ({ cart, carts,handleCart }) => {
           <p>Ratings: {rating} </p>
           <div className="card-actions justify-end">
             <button
-              onClick={() => handleDelete(_id)}
+              onClick={ handleDelete}
               className="btn btn-secondary"
             >
               Delete

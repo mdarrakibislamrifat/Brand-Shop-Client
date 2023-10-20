@@ -10,6 +10,8 @@ import PrivateRoute from "./PrivateRoute";
 import BrandCard from "../BrandCard/BrandCard";
 import Details from "../Details/Details";
 import UpdateProduct from "../UpdateProduct/UpdateProduct";
+import { serverAddress } from "../../Data/serverAddress";
+
 
 const router = createBrowserRouter([
   {
@@ -31,13 +33,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+
         path: "/mycart",
         element: (
           <PrivateRoute>
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/carts"),
+        loader: () => fetch(`${serverAddress}/carts`),
       },
       
       {
@@ -52,7 +55,7 @@ const router = createBrowserRouter([
         path: "/brandcard/:brandName",
         element: <BrandCard></BrandCard>,
         loader: ({ params }) =>
-          fetch(`https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/products/brand/${params.brandName}`),
+          fetch(`${serverAddress}/products/brand/${params.brandName}`),
       },
       {
         path: "/details/:_id",
@@ -62,13 +65,13 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/products/id/${params._id}`),
+          fetch(`${serverAddress}/products/id/${params._id}`),
       },
       {
         path: "/update/:id",
         element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`https://brand-shop-server-3rjf64at1-mdarrakibislamrifat.vercel.app/products/${params.id}`),
+          fetch(`${serverAddress}/products/${params.id}`),
       },
     ],
   },
