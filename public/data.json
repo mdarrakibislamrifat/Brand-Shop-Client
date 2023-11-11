@@ -1,32 +1,32 @@
 [
   {
     "id": 1,
-    "brandName": "Apple",
-    "image": "https://i.ibb.co/RNk8JjG/1511456315-653-apple-desktop.jpg"
+    "brandName": "Mirpur",
+    "image": "https://i.ibb.co/895nF1F/Screenshot-2023-11-11-182034.png"
   },
   {
     "id": 2,
-    "brandName": "Samsung",
-    "image": "https://i.ibb.co/8Nc4y5y/Samsung-Logo-svg.png"
+    "brandName": "Mohammadpur",
+    "image": "https://i.ibb.co/BtqJw0m/Screenshot-2023-11-11-182241.png"
   },
   {
     "id": 3,
-    "brandName": "Google",
-    "image": "https://i.ibb.co/ygNNL5x/Google-logo-500x281.png"
+    "brandName": "Dhanmondi",
+    "image": "https://i.ibb.co/tZX3n4h/Screenshot-2023-11-11-182440.png"
   },
   {
     "id": 4,
-    "brandName": "Xiaomi",
-    "image": "https://i.ibb.co/wrJ4Mdh/Xiaomi-logo-500x281.png"
+    "brandName": "Gulshan",
+    "image": "https://i.ibb.co/vwRpjgt/Screenshot-2023-11-11-182605.png"
   },
   {
     "id": 5,
-    "brandName": "Realme",
-    "image": "https://i.ibb.co/W2sGLnc/realme5985-logowik-com.webp"
+    "brandName": "Bashundhara",
+    "image": "https://i.ibb.co/gTHkcgd/Screenshot-2023-11-11-183038.png"
   },
   {
     "id": 6,
-    "brandName": "Sony",
-    "image": "https://i.ibb.co/S3rz3x8/Sony-logo-500x281.png"
+    "brandName": "Agargaon",
+    "image": "https://i.ibb.co/q15kjY4/Screenshot-2023-11-11-183214.png"
   }
 ]

@@ -75,13 +75,13 @@ const AddProduct = () => {
           </div>
           <div className="form-control md:w-1/2 ml-4">
             <label className="label">
-              <span className="label-text">Brand Name</span>
+              <span className="label-text">Location</span>
             </label>
             <label className="input-group">
               <input
                 type="text"
                 name="brandName"
-                placeholder="Brand Name"
+                placeholder="Location name"
                 className="input input-bordered w-full"
               />
             </label>
@@ -149,7 +149,7 @@ const AddProduct = () => {
         <input
           className="btn bg-violet-700 btn-block text-white"
           type="submit"
-          value="Add Phone"
+          value="Add Location"
         />
       </form>
     </div>

@@ -21,7 +21,7 @@ const Details = () => {
       .then((result) => result.json())
       .then((data) => {
         if (data.insertedId) {
-          toast.success("Successfully Added Cart!");
+          toast.success("Successfully Booking!");
         } else {
           toast.error("Already added this product");
         }
@@ -48,7 +48,7 @@ const Details = () => {
             onClick={ handleAddToCart}
             className="btn btn-primary"
           >
-            Add to Cart
+            Book Now!
           </button>
         </div>
       </div>

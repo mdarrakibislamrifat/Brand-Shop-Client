@@ -9,7 +9,7 @@ const BrandCard = () => {
     <div>
       <div className="carousel w-full">
         <div id="slide1" className="carousel-item relative w-full">
-          <img src="https://i.ibb.co/PQ1Pq3K/Galaxy.jpg" className="w-full" />
+          <img src="https://i.ibb.co/m6YShBt/Dhanmondi-Lake-02.jpg" className="w-full" />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide4" className="btn btn-circle">
               ❮
@@ -21,7 +21,7 @@ const BrandCard = () => {
         </div>
         <div id="slide2" className="carousel-item relative w-full">
           <img
-            src="https://i.ibb.co/KKBHg3n/8ef726ffe903afa19aa545e23f3b9c72.png"
+            src="https://i.ibb.co/fdnj0x4/Screenshot-2023-11-11-183910-1.png"
             className="w-full"
           />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -35,7 +35,7 @@ const BrandCard = () => {
         </div>
         <div id="slide3" className="carousel-item relative w-full">
           <img
-            src="https://i.ibb.co/hBJmyVP/xiaomi-12.jpg"
+            src="https://i.ibb.co/98Tx4S7/70-big.jpg"
             className="w-full"
           />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -49,7 +49,7 @@ const BrandCard = () => {
         </div>
         <div id="slide4" className="carousel-item relative w-full">
           <img
-            src="https://i.ibb.co/31gTsgG/realme-Fan-Fest-kicks-off-on-Daraz-with-lucrative-offers-to-mark-forthcoming-anniversary.png"
+            src="https://i.ibb.co/NYQqQpJ/Agargaon-IDB-Railway-Station.jpg"
             className="w-full"
           />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className="w-full bg-white shadow-lg p-8">
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
         <img
-          src="https://i.ibb.co/C8pPJss/7949550.jpg"
+          src="https://i.ibb.co/mD0hTbt/48167.jpg"
           alt="logo-ct"
           className="w-[150px]"
         />

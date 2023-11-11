@@ -62,7 +62,7 @@ const Navbar = () => {
               : ""
           }
         >
-          Add Product
+          Add Location/Restaurant
         </NavLink>
       </li>
       <li>
@@ -128,10 +128,10 @@ const Navbar = () => {
           </div>
           <img
             className="rounded-full w-[60px]"
-            src="https://i.ibb.co/C8pPJss/7949550.jpg"
+            src="https://i.ibb.co/mD0hTbt/48167.jpg"
             alt=""
           />
-          <Link className="btn btn-ghost normal-case text-xl">PhoneBD</Link>
+          <Link className="btn btn-ghost normal-case text-xl">Friendly Suggestion</Link>
         </div>
         {/* toggle dark white theme */}
         <label className="swap swap-rotate">
