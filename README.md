@@ -9,3 +9,14 @@
 * On my website add product my card these are all private rounds only when user login they can enter.
 
 [PhoneBD](https://brand-shop-bd.surge.sh/)
+
+# Technology That I am used---
+* Html5
+* css3
+* tailwindcss
+* javascript
+* express.js
+* mongodb
+* react.js
+* daisyui
+* VsCode
